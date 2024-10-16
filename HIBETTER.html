@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HIBETTER by Achraf - Motivational Edition</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffc0cb; /* Fond rose */
+        }
+        .game-container {
+            margin: 50px auto;
+            padding: 20px;
+            width: 60%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .words {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+        .poussin {
+            margin-top: 20px;
+            width: 80px; /* Taille du poussin réduite */
+            height: auto;
+            border-radius: 50%; /* Rond pour un effet mignon */
+        }
+        .speech-bubble {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff;
+            display: inline-block;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>HIBETTER</h1>
+        <p>Click the button to generate a motivational sentence just for you!</p>
+        <button onclick="generateMotivationalSentence()">Generate Motivational Sentence</button>
+
+        <div class="speech-bubble">
+            <p id="motivationalSentence">-</p>
+        </div>
+
+        <!-- Utiliser le lien de l'image hébergée -->
+        <img src="C:\Users\achra\Desktop\poussin.png" alt="Poussin" class="poussin">
+    </div>
+
+    <script>
+        // Arrays of motivational sentence parts
+        const beginnings = ["You are", "Never forget", "Believe in", "Stay strong because", "Always remember"];
+        const middles = ["brave", "worthy of greatness", "capable of achieving your dreams", "beautiful inside and out", "unstoppable"];
+        const endings = ["and can accomplish anything!", "and deserve the best!", "and nothing can hold you back!", "and the world needs your light!", "and you can reach for the stars!"];
+
+        // Function to generate a random motivational sentence
+        function generateMotivationalSentence() {
+            const randomBeginning = beginnings[Math.floor(Math.random() * beginnings.length)];
+            const randomMiddle = middles[Math.floor(Math.random() * middles.length)];
+            const randomEnding = endings[Math.floor(Math.random() * endings.length)];
+
+            const sentence = `${randomBeginning} ${randomMiddle} ${randomEnding}`;
+            document.getElementById("motivationalSentence").textContent = sentence;
+        }
+    </script>
+</body>
+</html>
