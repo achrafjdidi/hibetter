@@ -111,6 +111,14 @@
       font-size: 1.1em;
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
     }
+    @keyframes jump {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+      100% { transform: translateY(0); }
+    }
+    .chick.jump {
+      animation: jump 0.4s ease;
+    }
   </style>
 </head>
 <body>
@@ -130,8 +138,10 @@
     <div class="speech-bubble" id="sentence">-</div>
 
     <p style="margin-top:30px;">Clique sur le poussin pour qu'il te parle 🐥</p>
-    <img src="https://i.imgur.com/LkP4Y7r.png" alt="Chick Hug" class="chick" onclick="talkFromChick()">
+    <img src="https://raw.githubusercontent.com/achrafjdidi/hibetter/main/blablapoussin.png" alt="Chick Hug" class="chick" onclick="talkFromChick()">
     <div id="chickTalk" class="speech-bubble">-</div>
+
+    <audio id="piouSound" src="https://www.myinstants.com/media/sounds/metal-ping.mp3"></audio>
 
     <button onclick="showTenderness()">J’ai besoin de tendresse 💞</button>
     <div id="hugMessage" class="speech-bubble">Je suis là pour toi Biba... Toujours. 🫶🏼💖</div>
@@ -239,6 +249,17 @@
     function talkFromChick() {
       const phrase = chickQuotes[Math.floor(Math.random() * chickQuotes.length)];
       document.getElementById("chickTalk").textContent = phrase;
+
+      const chick = document.querySelector(".chick");
+      const audio = document.getElementById("piouSound");
+
+      if (audio) {
+        audio.currentTime = 0;
+        audio.play();
+      }
+
+      chick.classList.add("jump");
+      setTimeout(() => chick.classList.remove("jump"), 400);
     }
 
     function showTenderness() {
