@@ -11,6 +11,11 @@
             background-color: #ffe4ec;
             margin: 0;
             padding: 0;
+            transition: background-color 0.5s, color 0.5s;
+        }
+        body.night {
+            background-color: #2c2c54;
+            color: #f1f1f1;
         }
         .container {
             max-width: 800px;
@@ -69,6 +74,22 @@
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
             line-height: 1.6;
         }
+        .typewriter {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-top: 20px;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid;
+            animation: typing 4s steps(40, end), blink 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
     </style>
 </head>
 <body>
@@ -78,6 +99,9 @@
     </audio>
 
     <div class="container">
+        <button onclick="toggleNightMode()">🌙/☀️</button>
+        <div class="typewriter">Coucou Biba. Ce site est un refuge d’amour. Créé juste pour toi. Par ton Achraf. 🫶🏼</div>
+
         <h1>HIBETTER 💖</h1>
         <p>Mon amour, voici ton cocon de tendresse 🌸</p>
 
@@ -166,6 +190,10 @@
             } else {
                 alert("Oups, ce n’est pas ça 😢");
             }
+        }
+
+        function toggleNightMode() {
+            document.body.classList.toggle("night");
         }
     </script>
 </body>
